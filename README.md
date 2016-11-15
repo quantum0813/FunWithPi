@@ -17,3 +17,21 @@ mkdir build && cd build
 cmake ..
 make
 ```
+
+### Usage
+
+Using FunWithPi is simple! There are three required arguments: number of threads, number of iterations and precision in bytes.
+
+#### Required Arguments
+---
+**Number of threads**: Here you can specify the number of threads to use in computing Pi. There is no upper limit to this number, but it must be greater than 0.
+
+**Number of iterations**: Here you can specify how many iterations of the formula to calculate. The more iterations, the more accurate the answer will be, but the longer the computation will take.
+
+**Precision in bytes**: Here you can specify how precise you want the answer to be (i.e., how much of Pi you would like to calculate). This value is in bytes, NOT digits. For example, a precision of 100 bytes will give you 251 digits.
+
+#### Optional Arguments
+---
+**Accuracy checking (-c)**: If this option is specified, the accuracy of the calculated digits of Pi will be compared against a file containing a million digits of Pi. For this to work, the file named *"pi_one_mil.txt"* must be placed in the same directory as the executable.
+
+**Output redirection (-o filename)**: If this option is specified with a valid filename, the digits of Pi will be written to this location instead of standard output.
