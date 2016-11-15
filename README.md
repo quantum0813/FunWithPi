@@ -22,6 +22,8 @@ make
 
 Using FunWithPi is simple! There are three required arguments: number of threads, number of iterations and precision in bytes.
 
+```./FunWithPi nThreads nIters precisionInBytes [-c] [-o outFile]```
+
 #### Required Arguments
 ---
 **Number of threads**: Here you can specify the number of threads to use in computing Pi. There is no upper limit to this number, but it must be greater than 0.
