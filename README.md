@@ -9,7 +9,7 @@ The Chudnovsky algorithm was published by the Chudnovsky brothers in 1989, and i
 
 The Monte Carlo method is a simple way to estimate the value of Pi by generating random points, and determining if they lie inside or outside of a unit circle. If the point is inside of the unit circle, it is counted as a "hit". The "hits" are then added up, and divided by the number of "simulations" or "iterations" performed. The resulting fraction is then multiplied by 4 to give you a rough estimate of Pi. My implementation of this method uses MPI to perform the calculations in parallel.
 
-### Compiling
+### Compiling the Chudnovsky/OpenMP Example
 
 Compilation is simple. On Linux-based machines, the following commands can be executed:
 
@@ -19,9 +19,17 @@ cmake ..
 make
 ```
 
-### Usage
+### Compiling the Monte Carlo/MPI Example
 
-Using FunWithPi is simple! There are three required arguments: number of threads, number of iterations and precision in bytes.
+Compilation is simple. On Linux-based machines, the following command can be executed:
+
+```
+mpic++ -o monteCarlo monteCarloPiMPI.cpp -std=c++11
+```
+
+### Usage of the Chudnovsky/OpenMP Example
+
+Usage is simple! There are three required arguments: number of threads, number of iterations and precision in bytes.
 
 ```./FunWithPi nThreads nIters precisionInBytes [-c] [-o outFile]```
 
@@ -38,3 +46,9 @@ Using FunWithPi is simple! There are three required arguments: number of threads
 **Accuracy checking (-c)**: If this option is specified, the accuracy of the calculated digits of Pi will be compared against a file containing a million digits of Pi. For this to work, the file named *"pi_one_mil.txt"* must be placed in the same directory as the executable.
 
 **Output redirection (-o filename)**: If this option is specified with a valid filename, the digits of Pi will be written to this location instead of standard output.
+
+### Usage of the Monte Carlo/MPI Example
+
+Usage is simple! There is one required argument for the program, and one required argument for `mpiexec`: number of iterations for the program and number of threads for `mpiexec`
+
+```mpiexec -n numThreads ./monteCarlo numIterations```
